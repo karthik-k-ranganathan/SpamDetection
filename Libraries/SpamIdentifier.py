@@ -10,7 +10,6 @@ from sklearn.pipeline import Pipeline # https://scikit-learn.org/1.5/modules/gen
 from sklearn.model_selection import train_test_split # Splitting the data into training dataset and test dataset
 
 
-
 class SpamIdentifier:
     
     def __init__(self) -> None:
