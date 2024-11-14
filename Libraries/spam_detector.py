@@ -226,5 +226,5 @@ class SpamDetector:
         # print(f"\n The selected Model's Name: {self.selected_model.ModelName}")
 
 
-x = SpamDetector()
-print("selected model:", x.selected_model.ModelName, "\n")
+# x = SpamDetector()
+# print("selected model:", x.selected_model.ModelName, "\n")
