@@ -7,3 +7,4 @@ class ModelInfo:
         self.Model = None
         self.Tokenizer = None
         self.AccuracyScore = np.nan
+        self.ModelTrainedVer = "0.0.0.0"

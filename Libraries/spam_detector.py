@@ -4,6 +4,8 @@ import yaml
 import json
 from termcolor import colored
 
+import pickle
+
 import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split  # to train the model
@@ -164,6 +166,7 @@ class SpamDetector:
             current_model.ModelName = models_list[l]
             current_model.Model = model
             current_model.Tokenizer = vectorizer
+            current_model.ModelTrainedVer = "1.0.0.0"
             models_info.append(current_model)
 
             if trace_enabled:
@@ -199,7 +202,7 @@ class SpamDetector:
         else:
             result_text = "Not a Spam"
         print(
-            f"The prediction by the algorithm {x.selected_model.Model} is {result_text} [{result_code}]"
+            f"The prediction by the algorithm {self.selected_model.Model} is {result_text} [{result_code}]"
         )
 
         return result_code, result_text
@@ -209,6 +212,12 @@ class SpamDetector:
         # }
 
         # return json.dump(response_data)
+
+    def export_selected_model(self):
+        model_path = os.path.join(self.__script_dir, "../models/spam_detector.pkl")
+        with open(model_path, "wb") as file:
+            pickle.dump(self.selected_model, file)
+        print(colored(f"Model exported to {model_path}", "yellow"))
 
     def __init__(self) -> None:
         self.__script_dir = os.path.dirname(

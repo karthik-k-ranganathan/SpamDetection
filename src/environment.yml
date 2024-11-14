@@ -1,4 +1,4 @@
-name: spam_detection
+name: spam_detector
 channels:
   - defaults
   - conda-forge
@@ -10,5 +10,17 @@ dependencies:
   - matplotlib
   - seaborn
   - scikit-learn
-  - ipykernel
-  - black
+  - ipykernel  # Allows using this environment as a Jupyter kernel
+  - black  # Code formatter
+  - termcolor  # For colored text output
+  - pip  # Include pip for additional non-conda packages
+  - pip:
+      - pyyaml
+      - jsonschema
+
+# create a bash script to do the following
+# create the environment: Run the following command in a terminal
+# conda env create -f environment.yml
+# activate the environment: Run the following command in a terminal
+# conda activate spam_detector
+
